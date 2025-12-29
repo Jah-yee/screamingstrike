@@ -154,6 +154,11 @@ msgstr ""
 msgid "%(name)s: %(sec).2f seconds left"
 msgstr ""
 
+#: itemEffects.py:170
+#, python-format
+msgid "%(name)s: Permanent"
+msgstr ""
+
 #: player.py:137
 #, python-format
 msgid "%(hits)d consecutive hits bonus!"
@@ -232,6 +237,10 @@ msgstr ""
 
 #: ssAppMain.py:187
 msgid "Burden mode"
+msgstr ""
+
+#: ssAppMain.py:188
+msgid "Megaton mode"
 msgstr ""
 
 #: ssAppMain.py:196
@@ -351,6 +360,13 @@ msgid ""
 "what? The more you torture yourself, the more point boost you get! Oh, but "
 "if you die because of your own torturous act, hahahahahaha, you stupid! Good "
 "luck!"
+msgstr ""
+
+#: ssAppMain.py:369
+msgid ""
+"This is Megaton Mode! You start with a permanent Megaton Punch effect that "
+"multiplies your punch range by 5x for the entire game. Use this massive "
+"range to dominate the battlefield!"
 msgstr ""
 
 #: ssAppMain.py:374

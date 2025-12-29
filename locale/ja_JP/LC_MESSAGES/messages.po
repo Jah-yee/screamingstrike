@@ -158,6 +158,11 @@ msgstr ""
 msgid "%(name)s: %(sec).2f seconds left"
 msgstr "%(name)s: 残り %(sec).2f秒"
 
+#: itemEffects.py:170
+#, python-format
+msgid "%(name)s: Permanent"
+msgstr "%(name)s: 永続"
+
 #: player.py:137
 #, python-format
 msgid "%(hits)d consecutive hits bonus!"
@@ -237,6 +242,10 @@ msgstr "クラシックモード"
 #: ssAppMain.py:187
 msgid "Burden mode"
 msgstr "バーデンモード"
+
+#: ssAppMain.py:188
+msgid "Megaton mode"
+msgstr "メガトンモード"
 
 #: ssAppMain.py:196
 msgid ""
@@ -390,6 +399,16 @@ msgstr ""
 "トされます!自分を追い込めば追い込むほど、得点にブーストがかかるということです"
 "ね!おっと、でも、追い込みすぎて死んでしまったら、それはそれで情けない!頑張っ"
 "てくださいな!"
+
+#: ssAppMain.py:369
+msgid ""
+"This is Megaton Mode! You start with a permanent Megaton Punch effect that "
+"multiplies your punch range by 5x for the entire game. Use this massive "
+"range to dominate the battlefield!"
+msgstr ""
+"メガトンモードへようこそ！このモードでは、最初からメガトンパンチ効果が永続的"
+"に発動し、パンチの範囲が5倍になります。この強力な範囲を活用して、戦場を支配"
+"しましょう！"
 
 #: ssAppMain.py:374
 #, python-format

@@ -145,6 +145,31 @@ class MegatonPunchEffect(ItemEffectBase):
         self.player.setPunchRange(self.player.punchRange / 5)
 
 
+class PermanentMegatonPunchEffect(ItemEffectBase):
+    """Megaton Punch effect that never expires - for Megaton Mode."""
+
+    def initialize(self, player):
+        # Initialize with empty sound files since activation happens before game starts
+        super().initialize(player, "", "", "Megaton punch")
+
+    def activate(self, mode):
+        # Apply the effect without sounds or logs (happens at game initialization)
+        self.active = True
+        self.player.setPunchRange(self.player.punchRange * 5)
+
+    def deactivate(self, mode):
+        # Prevent deactivation - this effect is permanent
+        pass
+
+    def frameUpdate(self, mode):
+        # Always return True - this effect never expires
+        return True if self.active else False
+
+    def summarize(self):
+        """Returns permanent status instead of time remaining."""
+        return _("%(name)s: Permanent") % {"name": self.name}
+
+
 class BoostEffect(ItemEffectBase):
     def initialize(self, player):
         super().initialize(player, globalVars.appMain.sounds["boost.ogg"], globalVars.appMain.sounds["boostFade.ogg"], "Boost")

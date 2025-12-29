@@ -185,6 +185,7 @@ class ssAppMain(window.SingletonWindow):
         m.append(_("Arcade mode") + "&2")
         m.append(_("Classic mode") + "&3")
         m.append(_("Burden mode") + "&4")
+        m.append(_("Megaton mode") + "&5")
 
     def mainmenu(self):
         """
@@ -264,27 +265,27 @@ class ssAppMain(window.SingletonWindow):
         self.checkChangeLog()
         while(True):
             selected = self.mainmenu()
-            if selected is False or selected == 10:
+            if selected is False or selected == 11:
                 self.exit()
             if selected == 0:
                 if self.updateChecker.getLastResult() == updateClient.RET_NEW_VERSION_AVAILABLE:
                     self.downloadUpdate()
                 continue
             # end the update notification area
-            if selected == 5:
+            if selected == 6:
                 self.collectionDialog()
                 continue
-            if selected == 6:
+            if selected == 7:
                 self.viewScoreboard()
                 continue
-            if selected == 7:
+            if selected == 8:
                 self.displayManual()
                 continue
-            if selected == 8:
+            if selected == 9:
                 self.eraseDataDialog()
                 continue
             # end erase data
-            if selected == 9:
+            if selected == 10:
                 self.optionsDialog()
                 continue
             # end options
@@ -364,6 +365,8 @@ class ssAppMain(window.SingletonWindow):
                 self.showTip(_("This is the old-fashioned game mode! You don't get bonuses based on accuracy, so you can punch, punch, punch punch punch and punch! This mode has a sharper levelup curb, meaning that you can collect screams really fast!"))
             elif mode == gameModes.ALL_MODES_STR[3]:
                 self.showTip(_("Welcome to this new and exciting burden mode! In this mode, every item gives you a nasty effect, and each nasty effect boosts points you gain! Guess what? The more you torture yourself, the more point boost you get! Oh, but if you die because of your own torturous act, hahahahahaha, you stupid! Good luck!"))
+            elif mode == gameModes.ALL_MODES_STR[4]:
+                self.showTip(_("This is Megaton Mode! You start with a permanent Megaton Punch effect that multiplies your punch range by 5x for the entire game. Use this massive range to dominate the battlefield!"))
 
     def showTip(self, tip):
         """Shows the ingame tip.

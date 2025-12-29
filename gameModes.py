@@ -13,7 +13,8 @@ NORMAL = 0
 ARCADE = 1
 CLASSIC = 2
 BURDEN = 3
-ALL_MODES_STR = ["Normal", "Arcade", "Classic", "Burden"]
+MEGATON = 4
+ALL_MODES_STR = ["Normal", "Arcade", "Classic", "Burden", "Megaton"]
 
 
 class ModeHandlerBase(object):
@@ -112,6 +113,29 @@ class NormalModeHandler(ModeHandlerBase):
 
     def initialize(self, field):
         super().initialize(field)
+
+
+class MegatonModeHandler(NormalModeHandler):
+    """Megaton Mode - Normal Mode with permanent Megaton Punch effect."""
+
+    def __init__(self):
+        super().__init__()
+        self.name = ALL_MODES_STR[4]
+        self.effectApplied = False
+
+    def initialize(self, field):
+        super().initialize(field)
+
+    def frameUpdate(self):
+        # Apply permanent Megaton Punch effect on the first frame
+        if not self.effectApplied:
+            import itemEffects
+            e = itemEffects.PermanentMegatonPunchEffect()
+            e.initialize(self.field.player)
+            e.activate(self)
+            self.field.player.itemEffects.append(e)
+            self.effectApplied = True
+        super().frameUpdate()
 
 
 class ArcadeModeHandler(ModeHandlerBase):
@@ -327,4 +351,6 @@ def getModeHandler(mode):
         return ClassicModeHandler()
     if mode == ALL_MODES_STR[3]:
         return BurdenModeHandler()
+    if mode == ALL_MODES_STR[4]:
+        return MegatonModeHandler()
     return None
